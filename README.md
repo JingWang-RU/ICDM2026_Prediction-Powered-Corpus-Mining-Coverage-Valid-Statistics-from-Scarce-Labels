@@ -117,46 +117,6 @@ The notebook downloads the two public benchmarks (HoC, ADE) and writes:
 | Abstract and contribution list | §10 | `abstract_numbers` | the keys above |
 | Supplementary, not printed in the final paper: Long COVID applied estimate | §6 | `longcovid` | `data/llm/*_{gold,pool}.csv`, gold labels |
 
-### Numbers in the abstract and the contribution list (§10)
-
-Width ratios use the TF-IDF predictor (upper blocks of Table II), as in Sec. V-C and Fig. 5(c), averaged over
-$n_g \in \{50, 100, 150, 200, 300\}$. Where the abstract and the contributions quote one figure for both benchmarks, it
-is the more conservative benchmark: HoC for the width saving and ADE for the ACC penalty.
-
-| claim | paper | regenerated |
-|---|---|---|
-| PPI coverage on the two benchmarks | 0.91–0.96 | TF-IDF predictor 0.912–0.964; LLM predictor 0.908–0.964 |
-| PPI narrower than expert-only | ≈15% (abstract); 16% on average (contributions); 16% HoC, 21% ADE (Fig. 5c); 15–16% HoC, 20–22% ADE at every $n_g$ (Sec. V-C) | HoC 15.6% on average (15.0–16.1% per $n_g$); ADE 21.2% (20.1–22.4%) |
-| ACC interval width / PPI width | 2.5 times (abstract, contributions); 3.0× HoC, 2.5× ADE (Sec. V-C) | HoC 2.96×; ADE 2.52× |
-| ACC coverage | comparable; 0.94–0.97 on HoC | HoC 0.942–0.966; ADE 0.934–0.968 |
-| naive count under systematic bias | zero coverage | 0.000 at every $n_g$ on HoC (TF-IDF, bias −4.7 pts) and on both benchmarks with the LLM predictor; with the nearly unbiased ADE TF-IDF predictor it covers (0.994–1.000) |
-| PPI coverage on the clinical labels | 0.92–0.96 (contributions) | 0.924–0.957 |
-| expert labels | ~100 reports | gold sizes 50–300 on the benchmarks; 123 clinical gold reports |
-
-### Notes on matching the paper
-
-* **Interval clipping.** Eq. (21) intersects each interval with [0, 1]. The paper's tables report the intervals
-  without that intersection, so `reproduce.py` sets `CLIP_CI = False`; `ppi_corpus.py` clips by default. With
-  clipping, no coverage value changes; four mean widths at ADE $n_g = 50$ shrink by at most 0.0004, which changes one
-  printed cell (Table II, ADE, $n_g = 50$, PPI width 0.155 → 0.154).
-* **Table I.** The notebook labels the first row `TF-IDF+LogReg`; the paper prints `TF-IDF`. The numbers are identical.
-* **Table V.** `tab_e4_rows.tex` carries two extra trailing columns (BH-adjusted q, discovery flag) that the paper's
-  six-column table does not print. All 45 leakage-controlled pairs have q = 1.00 (`assoc_table_rows[*].q`).
-* **Fig. 5(d).** The image printed in the paper plots the superpopulation curves
-  (`clinical_coverage.by_labeler.<tag>.coverage_superpop`: no finite-population correction). Table III and Sec. V-D
-  use the finite-population design (`clinical_coverage.by_labeler.<tag>.coverage`), which `fig_coverage.pdf`(d)
-  plots. §7 computes both and also writes `fig_coverage_as_printed.pdf`, which is the printed Fig. 5. Panels (a–c)
-  are identical in both files.
-* **Fig. 4.** The printed figure is the notebook's `fig_e1.pdf`. The seed-stability statistics in the caption
-  (R = 15 seeded fine-tunes, D = 200 subsample draws) come from repeated GPU fine-tuning runs that are not part of
-  this bundle.
-* **Numbers not computed by the notebook.** The PubMed Open Access size (1,488,346 articles) and the 152,974
-  probable case reports come from the cited prior work. The ~15k characters per report needs the full text, which
-  is not redistributed. The ADE corpus size 23,516 is the public train + test split size (17,637 + 5,879) before
-  de-duplication. The default labeler's per-class F1 (0.611 / 0.755) follows from `data/llm/qwen38_27b_gold.csv`,
-  and the binomial half-width of 8.7 points is 1.96·sqrt(0.423·0.577/123).
-* **Platt penalty.** `platt_fit` uses `C = 1e3`, a negligible ridge (the maximum-likelihood fit of Eq. (14)),
-  everywhere except the supplementary Long COVID cross-fit of §6, which keeps the accepted version's `C = 1`.
 
 ## Data (`data/`, ~7 MB, mostly the frozen embeddings in `cached_gpu/`; no article full text is redistributed)
 
