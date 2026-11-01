@@ -1,0 +1,16 @@
+{
+  "model": "unsloth/Llama-3.1-8B-Instruct",
+  "tag": "llama8b",
+  "prompt": "original (Unsloth_qwen14B.ipynb cell 14)",
+  "max_doc_tokens": 10000,
+  "n_gold": 123,
+  "n_pool": 3066,
+  "acc": 0.732,
+  "macro_f1": 0.727,
+  "prec1": 0.673,
+  "rec1": 0.712,
+  "auroc": 0.795,
+  "gold_pred_yes_rate": 0.447,
+  "pool_pred_yes_rate": 0.0965,
+  "seconds": 1264
+}

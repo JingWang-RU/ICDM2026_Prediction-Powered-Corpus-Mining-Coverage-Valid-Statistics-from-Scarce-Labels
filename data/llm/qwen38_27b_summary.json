@@ -1,0 +1,16 @@
+{
+  "model": "Qwen/Qwen3.8-27B",
+  "tag": "qwen38_27b",
+  "prompt": "original (Unsloth_qwen14B.ipynb cell 14)",
+  "max_doc_tokens": 10000,
+  "n_gold": 123,
+  "n_pool": 3066,
+  "acc": 0.699,
+  "macro_f1": 0.683,
+  "prec1": 0.674,
+  "rec1": 0.558,
+  "auroc": 0.828,
+  "gold_pred_yes_rate": 0.35,
+  "pool_pred_yes_rate": 0.0232,
+  "seconds": 3510
+}

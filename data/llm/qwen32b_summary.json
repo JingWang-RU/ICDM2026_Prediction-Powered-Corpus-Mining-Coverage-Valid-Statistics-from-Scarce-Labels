@@ -1,0 +1,16 @@
+{
+  "model": "Qwen/Qwen3-32B",
+  "tag": "qwen32b",
+  "prompt": "original (Unsloth_qwen14B.ipynb cell 14)",
+  "max_doc_tokens": 10000,
+  "n_gold": 123,
+  "n_pool": 0,
+  "acc": 0.748,
+  "macro_f1": 0.748,
+  "prec1": 0.652,
+  "rec1": 0.865,
+  "auroc": 0.817,
+  "gold_pred_yes_rate": 0.561,
+  "pool_pred_yes_rate": null,
+  "seconds": 336
+}

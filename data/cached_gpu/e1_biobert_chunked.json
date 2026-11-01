@@ -1,0 +1,31 @@
+{
+  "model": "dmis-lab/biobert-base-cased-v1.1",
+  "protocol": "all 512-token chunks, chunk inherits doc label; 5-fold CV",
+  "epochs": 12,
+  "lr": 1e-05,
+  "batch_size": 8,
+  "max_chunks": 32,
+  "chunks_per_doc": {
+    "mean": 7.59,
+    "median": 7,
+    "max": 21,
+    "total": 933
+  },
+  "mean_pool": {
+    "acc": 0.577,
+    "macro_f1": 0.565,
+    "prec1": 0.5,
+    "rec1": 0.481,
+    "auroc": 0.658,
+    "auprc": 0.596
+  },
+  "max_pool": {
+    "acc": 0.496,
+    "macro_f1": 0.457,
+    "prec1": 0.452,
+    "rec1": 0.904,
+    "auroc": 0.616,
+    "auprc": 0.557
+  },
+  "seconds": 519
+}

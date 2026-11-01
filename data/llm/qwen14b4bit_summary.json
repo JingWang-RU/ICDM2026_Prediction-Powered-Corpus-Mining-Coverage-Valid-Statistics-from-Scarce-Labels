@@ -1,0 +1,16 @@
+{
+  "model": "Qwen/Qwen3-14B (4-bit NF4, double-quant, bf16 compute)",
+  "tag": "qwen14b4bit",
+  "prompt": "original (Unsloth_qwen14B.ipynb cell 14)",
+  "max_doc_tokens": 10000,
+  "n_gold": 123,
+  "n_pool": 3066,
+  "acc": 0.732,
+  "macro_f1": 0.724,
+  "prec1": 0.686,
+  "rec1": 0.673,
+  "auroc": 0.814,
+  "gold_pred_yes_rate": 0.415,
+  "pool_pred_yes_rate": 0.0532,
+  "seconds": 2774
+}

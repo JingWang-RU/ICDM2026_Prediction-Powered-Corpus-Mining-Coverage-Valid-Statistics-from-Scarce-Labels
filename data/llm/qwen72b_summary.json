@@ -1,0 +1,16 @@
+{
+  "model": "Qwen/Qwen2.5-72B-Instruct-AWQ",
+  "tag": "qwen72b",
+  "prompt": "original (Unsloth_qwen14B.ipynb cell 14)",
+  "max_doc_tokens": 10000,
+  "n_gold": 123,
+  "n_pool": 0,
+  "acc": 0.707,
+  "macro_f1": 0.699,
+  "prec1": 0.66,
+  "rec1": 0.635,
+  "auroc": 0.751,
+  "gold_pred_yes_rate": 0.407,
+  "pool_pred_yes_rate": null,
+  "seconds": 788
+}

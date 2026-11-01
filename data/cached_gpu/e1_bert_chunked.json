@@ -1,0 +1,31 @@
+{
+  "model": "bert-base-uncased",
+  "protocol": "all 512-token chunks, chunk inherits doc label; 5-fold CV",
+  "epochs": 12,
+  "lr": 1e-05,
+  "batch_size": 8,
+  "max_chunks": 32,
+  "chunks_per_doc": {
+    "mean": 7.29,
+    "median": 7,
+    "max": 20,
+    "total": 897
+  },
+  "mean_pool": {
+    "acc": 0.602,
+    "macro_f1": 0.602,
+    "prec1": 0.522,
+    "rec1": 0.692,
+    "auroc": 0.604,
+    "auprc": 0.506
+  },
+  "max_pool": {
+    "acc": 0.455,
+    "macro_f1": 0.383,
+    "prec1": 0.434,
+    "rec1": 0.942,
+    "auroc": 0.564,
+    "auprc": 0.48
+  },
+  "seconds": 463
+}
